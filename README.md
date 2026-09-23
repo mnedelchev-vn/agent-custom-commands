@@ -21,7 +21,7 @@ The body then documents context gathering (e.g. `!`command`` blocks that inject 
 
 ### `/push`
 
-**File:** [push.md](push.md)
+**File:** [push.md](./commands/push.md)
 
 Adds, commits, and pushes pending changes — either as a single batched commit or as one commit per changed file — without ever force-pushing or rewriting history.
 
@@ -49,10 +49,3 @@ Adds, commits, and pushes pending changes — either as a single batched commit 
 - Auto-detects whether an upstream branch exists and uses `git push -u origin <branch>` the first time if not.
 - Never uses `--force` or `--force-with-lease`, never amends prior commits, and stops immediately if any push fails rather than attempting to resolve conflicts automatically.
 - Restricted to a fixed set of read-only and additive `git` subcommands (`status`, `rev-parse`, `branch`, `add`, `commit`, `push`, `diff`, `log`) via `allowed-tools`.
-
-## Adding a new command
-
-1. Create a new `<name>.md` file in this repo following the frontmatter + task structure shown above.
-2. Keep `allowed-tools` as narrow as possible — only grant the exact tool/command patterns the command needs.
-3. Document safety notes explicitly (e.g. what the command must never do) so behavior stays predictable.
-4. Add a section to this README describing its purpose, arguments, and behavior.
